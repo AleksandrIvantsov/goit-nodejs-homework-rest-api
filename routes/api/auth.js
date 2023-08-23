@@ -7,12 +7,18 @@ const {
   logout,
   updateSubscriptionStatus,
   updateAvatar,
+  verifyEmail,
+  resendVerificationEmail,
 } = require("../../controllers/auth");
 const { authenticate, upload } = require("../../middlewares");
 
 const router = express.Router();
 
 router.post("/register", register);
+
+router.get("/verify/:verificationToken", verifyEmail);
+
+router.post("/verify", resendVerificationEmail);
 
 router.post("/login", login);
 
